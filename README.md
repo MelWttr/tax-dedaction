@@ -1,2 +1,2 @@
-# tax-dedaction
+# tax-deduction
 тестовое задание для Kodix

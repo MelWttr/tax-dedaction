@@ -1,0 +1,14 @@
+mixin head(title)
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    <meta name="description" content="Сайт для расчета налогового вычета от стоимости квартиры. На основании ежемесячного дохода, отображается количество лет, в течении которых будут производиться выплаты с указанием суммы выплаты за каждый год."/>
+
+    title!= title
+
+    link(rel="preload" href="fonts/LabGrotesque-Light.woff2" as="font" crossorigin="anonymous")
+    link(rel="preload" href="fonts/LabGrotesque-Regular.woff2" as="font" crossorigin="anonymous")
+    link(rel="preload" href="fonts/LabGrotesque-Medium.woff2" as="font" crossorigin="anonymous")
+
+    link(rel="stylesheet" href="css/style.css")
+

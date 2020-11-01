@@ -1,0 +1,12 @@
+mixin payment(extraClassName)
+  - let className = 'check'
+    -className = extraClassName ? className + ' ' + extraClassName : className
+    template(id='payment')
+      div(class= className)
+        label.check__label
+          input.check__input.visually-hidden(type='checkbox', name='платеж')
+          span.check__box
+          span.check__sum 78 000 рублей
+            |
+            |
+            span.check__year в 3-ий год

@@ -1,0 +1,40 @@
+.button {
+  @include button-reset;
+  @include align-center;
+  color: $white;
+  border-radius: 6px;
+  padding: 12px 24px;
+
+  @include mobile-max {
+    padding: 16px 32px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &--disabled {
+    background: none;
+    background-color: $color-btn-disabled;
+    pointer-events: none;
+    box-shadow: none;
+  }
+}
+
+.button--gradient {
+  @include bg-gradient;
+  box-shadow: 0 0 24px rgba(234, 0, 41, 0.33);
+  transition: background-color $transition-props;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: $color-red;
+    }
+  }
+
+  &:active {
+    background-color: $color-red;
+  }
+
+  &:disabled {
+    background: $color-btn-disabled;
+  }
+}

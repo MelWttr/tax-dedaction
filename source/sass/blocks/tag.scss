@@ -1,0 +1,36 @@
+// .tag {
+//   @include bg-gradient;
+
+//   padding: 6px 12px;
+//   color: $white;
+//   border-radius: 50px;
+//   cursor: pointer;
+
+//   transition: all $transition-props;
+
+//   @media (hover: hover) {
+//     &:hover {
+//       background: none;
+//       background-color: $color-tag-hover;
+//       color: $black;
+//     }
+//   }
+
+// &:active {
+//   background-color: none;
+
+//   @include bg-gradient;
+//   color: $white;
+// }
+
+// &:focus {
+//   background-color: $color-tag-hover;
+// }
+
+// &--disabled {
+//   background: none;
+//   background-color: $color-tag-disabled;
+//   color: $black;
+//   pointer-events: none;
+// }
+// }

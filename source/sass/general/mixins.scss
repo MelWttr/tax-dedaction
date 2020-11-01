@@ -1,0 +1,134 @@
+// @mixin desktop-m {
+//   @media (min-width: $width-desktop-min) {
+//     @content;
+//   }
+// }
+
+// @mixin desktop-s {
+//   @media (max-width: $width-desktop-min - 1) {
+//     @content;
+//   }
+// }
+
+// @mixin desktop {
+//   @media (max-width: $width-laptop - 1px) {
+//     @content;
+//   }
+// }
+
+// @mixin desktop-only {
+//   @media (min-width: $width-laptop) {
+//     @content;
+//   }
+// }
+
+// @mixin tablet {
+//   @media (max-width: $width-laptop - 1px) {
+//     @content;
+//   }
+// }
+
+// @mixin tablet-lg {
+//   @media (max-width: 1200px) {
+//     @content;
+//   }
+// }
+
+// @mixin tablet-only {
+//   @media (max-width: $width-laptop - 1px) and (min-width: $width-tablet) {
+//     @content;
+//   }
+// }
+
+// @mixin mobile {
+//   @media (max-width: $width-tablet - 1px) {
+//     @content;
+//   }
+// }
+
+// @mixin mobile-xs {
+//   @media (max-width: $width-mobile-s - 1) {
+//     @content;
+//   }
+// }
+
+@mixin mobile-max {
+  @media (min-width: $width-mobile-max) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $width-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $width-desktop) {
+    @content;
+  }
+}
+
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin button-reset {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+@mixin text-main {
+  font-size: $font-base;
+  line-height: $font-base-line-height;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+@mixin middle-title {
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 24px;
+}
+
+@mixin align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin bg-gradient {
+  background: linear-gradient(255.35deg, #dc3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #ff5e56;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@mixin popup {
+  border-radius: 26px;
+  border: 3px solid $color-bg-base;
+  background: $white;
+}
+
+@mixin gradient-bg {
+  background: linear-gradient(255.35deg, #dc3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #ff5e56;
+}

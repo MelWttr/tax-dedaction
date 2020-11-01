@@ -1,0 +1,15 @@
+extends ../global/layout
+include ../components/button
+include ../blocks/popup
+
+block variables
+  -
+    const lang = "ru"
+    const title = "Tax deduction"
+
+block content
+  +button('Налоговый вычет', {isLink: true, additionalClassName: 'page__button'})
+block templates
+  +popup()
+  +payment('popup__check')
+

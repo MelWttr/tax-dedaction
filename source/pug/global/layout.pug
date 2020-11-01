@@ -1,0 +1,21 @@
+include ./head
+include ../blocks/popup
+include ../blocks/payment-templ
+
+doctype html
+block variables
+  -
+    const lang = "ru"
+    const title = "Refin market"
+    const headerLinks = ""
+    const footerLinks = ""
+
+html(lang=lang)
+  +head(title)
+  body
+    main.page
+      h1.visually-hidden Страница налогового вычета
+      block content
+    block templates
+    script(src="js/vendor.js")
+    script(src="js/main.js")

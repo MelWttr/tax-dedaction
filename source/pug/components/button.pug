@@ -1,0 +1,16 @@
+mixin button(text, props)
+  - let className = 'button'
+    -className = props.additionalClassName ? className + ' ' + props.additionalClassName : className;
+    if (props.isLink)
+      a(class!= className href!= props.href ? props.href : '#')= text
+    else
+      button(class!= className type!= props.type ? props.type : 'button')= text
+
+//- argTypes
+  text: string,
+  props: {
+    type: oneOf['button', 'submit', 'reset'],
+    isLink: bool,
+    href: string,
+    additionalClassName: string,
+  }

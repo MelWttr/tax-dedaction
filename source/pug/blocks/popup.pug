@@ -1,0 +1,39 @@
+include ../components/button
+include ../components/svg
+
+mixin popup()
+  .popup
+    .popup__wrapper
+      .popup__overlay
+      .popup__content
+        h2.popup__title Налоговый вычет
+        p.popup__info Используйте налоговый вычет чтобы погасить ипотеку досрочно. Размер налогового вычета составляет не более 13% от своего официального годового дохода.
+        .popup__form
+          form(action='#' method='GET')
+            label.popup__field.popup__field--price
+              span.popup__field-title.popup__field-title--text Стоимость квартиры
+              input(type='text' placeholder='Введите данные' id='flat-price' required)
+              span.popup__error-message.hidden Поле обязательно для заполнения
+            label.popup__field.popup__field--salary
+              span.popup__field-title.popup__field-title--text Ваша зарплата в месяц
+              input(type='text' placeholder='Введите данные' id='salary-amount' required)
+              span.popup__error-message.hidden Поле обязательно для заполнения
+            button.popup__calculate-btn(type='button') Рассчитать
+            div.popup__payment-group.hidden
+              p.popup__field-title.popup__field-title--payment Итого можете внести в качестве досрочных:
+            .popup__type-group
+              p.popup__field-title.popup__field-title--check Что уменьшаем?
+              input.popup__radio.visually-hidden(type='radio' id='type-payment' value='0' name='type-group' checked)
+              label.popup__tag.popup__radio--payment(for='type-payment') Платёж
+              input.popup__radio.visually-hidden(type='radio' id='type-time' name='type-group' value='1')
+              label.popup__tag.popup__tag--time(for='type-time') Срок
+            +button('Добавить', {type: 'submit', additionalClassName: 'button--gradient popup__form-submit'})
+        button.popup__close(type='button') Закрыть окно
+          +svg('icon-cross', 12, 12, 'popup__cross-icon')
+        .popup__loader Loading...
+
+
+
+
+
+

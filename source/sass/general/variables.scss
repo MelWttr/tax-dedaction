@@ -1,0 +1,32 @@
+$white: #ffffff;
+$black: #000000;
+$color-red: #ea0029;
+$color-text-gray: #808080;
+$color-border: #dfe3e6;
+$color-tag-hover: #dfe3e6;
+$color-tag: #eef0f2;
+$color-placeholder: #bec5cc;
+$color-btn-disabled: #bec5cc;
+$color-disabled-field: #808080;
+$color-txt-btn-hover: #f53a31;
+
+$width-min:        320px;
+$width-mobile-max: 460px;
+$width-desktop:    1440px;
+$width-tablet:     768px;
+
+
+$desktop-padding: 145px;
+$tablet-padding: 32px;
+$mobile-padding: 16px;
+
+$retina-dpi:    144dpi;
+$retina-dppx:  1.5dppx;
+
+$font-family: "LabGrotesque", "Arial", sans-serif;
+$font-base: 12px;
+$font-base-line-height: 16px;
+
+$transition-duration: 0.2s;
+$transition-timing-function: cubic-bezier(0.79, 0.14, 0.15, 0.86);
+$transition-props: $transition-duration $transition-timing-function;

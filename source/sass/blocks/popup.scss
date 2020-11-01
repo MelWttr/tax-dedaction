@@ -1,0 +1,363 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 100;
+
+  &--active {
+    visibility: visible;
+    pointer-events: all;
+
+    .popup__overlay {
+      opacity: 1;
+    }
+
+    .popup__content {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+.popup__wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+
+  @include mobile-max {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  @include tablet {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+.popup__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: $black, $alpha: 0.3);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.popup__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 453px;
+  min-height: 100vh;
+  padding-top: 32px;
+  padding-left: $mobile-padding;
+  padding-right: $mobile-padding;
+
+  background-color: $white;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: transform 0.3s 0.3s, opacity 0.5s 0.3s;
+
+  @include mobile-max {
+    min-height: auto;
+    border-radius: 30px;
+    padding-left: $tablet-padding;
+    padding-right: $tablet-padding;
+  }
+
+  @include desktop {
+    max-width: 552px;
+  }
+}
+
+.popup__form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  form {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.popup__title {
+  margin: 0;
+  margin-bottom: 16px;
+
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+
+  @include mobile-max {
+    font-size: 28px;
+    line-height: 40px;
+  }
+}
+
+.popup__info {
+  margin: 0;
+  margin-bottom: 24px;
+  color: $color-text-gray;
+}
+
+.popup__field-title {
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+
+  &--text {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  &--check {
+    margin: 0;
+    margin-bottom: 24px;
+    padding-right: 36px;
+    width: 100%;
+
+    @include mobile-max {
+      width: auto;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.popup__payment-group {
+  margin-bottom: 24px;
+}
+
+.popup__field {
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+
+  input {
+    appearance: none;
+    outline: none;
+    border: 1px solid $color-border;
+    border-radius: 3px;
+    padding: 7px 10px;
+
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+
+    transition: border-color $transition-props;
+
+    @media (hover: hover) {
+      &:hover {
+        border-color: $black;
+      }
+    }
+
+    &:focus {
+      border-color: $color-border;
+    }
+
+    &:disabled {
+      border-color: $color-disabled-field;
+    }
+
+    &::placeholder {
+      color: $color-placeholder;
+    }
+  }
+}
+
+.popup__calculate-btn {
+  @include button-reset;
+
+  margin-bottom: 16px;
+  align-self: flex-start;
+
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+  color: $color-red;
+  transition: color $transition-props;
+
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      color: $color-txt-btn-hover;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $black;
+  }
+
+  &:active {
+    color: $color-red;
+  }
+}
+
+.popup__radio {
+  margin-right: 16px;
+}
+
+.popup__type-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.popup__close {
+  @include button-reset;
+  @include align-center;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  font-size: 0;
+
+  transition: opacity $transition-props;
+
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $black;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+
+  @include mobile-max {
+    top: 25px;
+    right: 20px;
+  }
+}
+
+.popup__cross-icon {
+  fill: $color-red;
+
+  @include mobile-max {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.popup__form-submit {
+  width: 100%;
+  margin-bottom: 32px;
+  margin-top: auto;
+
+  &:focus-visible {
+    outline: 2px solid $black;
+  }
+
+  &:disabled {
+    background: none;
+    background-color: $color-btn-disabled;
+    pointer-events: none;
+    box-shadow: none;
+  }
+}
+
+.popup__tag {
+  padding: 6px 12px;
+  margin-right: 8px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: $black;
+  border-radius: 50px;
+  cursor: pointer;
+
+  transition: background-color $transition-props;
+  background-color: $color-tag;
+
+  @media (hover: hover) {
+    &:hover {
+      background: none;
+      background-color: $color-tag-hover;
+      color: $black;
+    }
+  }
+
+  @include mobile-max {
+    margin-right: 15px;
+  }
+}
+
+.popup__radio:focus-visible + .popup__tag {
+  outline: 2px solid $black;
+}
+
+.popup__radio:disabled + .popup__tag {
+  background: none;
+  background-color: $color-tag;
+  color: $black;
+  pointer-events: none;
+}
+
+.popup__radio:checked + .popup__tag,
+.popup__radio:checked + .popup__tag:hover {
+  @include bg-gradient;
+  color: $white;
+}
+
+.popup__error-message {
+  padding-top: 5px;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  color: $color-red;
+  transition: opacity $transition-props, height $transition-props;
+}
+
+.popup__loader {
+  position: fixed;
+  top: 49%;
+  left: 50%;
+  color: $color-red;
+  font-size: 25px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 25px;
+  height: 25px;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  transform: translateZ(0);
+  transition: opacity $transition-props;
+
+
+  &--visible {
+    opacity: 1;
+    -webkit-animation: load 1.7s infinite ease, round 1.7s infinite ease;
+    animation: load 1.7s infinite ease, round 1.7s infinite ease;
+  }
+}

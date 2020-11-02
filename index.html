@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content="Сайт для расчета налогового вычета от стоимости квартиры. На основании ежемесячного дохода, отображается количество лет, в течении которых будут производиться выплаты с указанием суммы выплаты за каждый год."/>
+    <title>Tax deduction</title>
+    <link rel="preload" href="fonts/LabGrotesque-Light.woff2" as="font" crossorigin="anonymous"/>
+    <link rel="preload" href="fonts/LabGrotesque-Regular.woff2" as="font" crossorigin="anonymous"/>
+    <link rel="preload" href="fonts/LabGrotesque-Medium.woff2" as="font" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body>
+    <main class="page">
+      <h1 class="visually-hidden">Страница налогового вычета</h1><a class="button page__button" href="#">Налоговый вычет</a>
+    </main>
+    <div class="popup">
+      <div class="popup__wrapper">
+        <div class="popup__overlay"></div>
+        <div class="popup__content">
+          <h2 class="popup__title">Налоговый вычет</h2>
+          <p class="popup__info">Используйте налоговый вычет чтобы погасить ипотеку досрочно. Размер налогового вычета составляет не более 13% от своего официального годового дохода.</p>
+          <div class="popup__form">
+            <form action="#" method="GET">
+              <label class="popup__field popup__field--price"><span class="popup__field-title popup__field-title--text">Стоимость квартиры</span>
+                <input type="text" placeholder="Введите данные" id="flat-price" required="required"/><span class="popup__error-message hidden">Поле обязательно для заполнения</span>
+              </label>
+              <label class="popup__field popup__field--salary"><span class="popup__field-title popup__field-title--text">Ваша зарплата в месяц</span>
+                <input type="text" placeholder="Введите данные" id="salary-amount" required="required"/><span class="popup__error-message hidden">Поле обязательно для заполнения</span>
+              </label>
+              <button class="popup__calculate-btn" type="button">Рассчитать</button>
+              <div class="popup__payment-group hidden">
+                <p class="popup__field-title popup__field-title--payment">Итого можете внести в качестве досрочных:</p>
+              </div>
+              <div class="popup__type-group">
+                <p class="popup__field-title popup__field-title--check">Что уменьшаем?</p>
+                <input class="popup__radio visually-hidden" type="radio" id="type-payment" value="0" name="type-group" checked="checked"/>
+                <label class="popup__tag popup__radio--payment" for="type-payment">Платёж</label>
+                <input class="popup__radio visually-hidden" type="radio" id="type-time" name="type-group" value="1"/>
+                <label class="popup__tag popup__tag--time" for="type-time">Срок</label>
+              </div>
+              <button class="button button--gradient popup__form-submit" type="submit">Добавить</button>
+            </form>
+          </div>
+          <button class="popup__close" type="button">Закрыть окно
+            <svg class="popup__cross-icon" width="12" height="12" aria-hidden="true">
+              <use xlink:href="img/sprite.svg#icon-cross"></use>
+            </svg>
+          </button>
+          <div class="popup__loader">Loading...</div>
+        </div>
+      </div>
+    </div>
+    <template id="payment">
+      <div class="check popup__check">
+        <label class="check__label">
+          <input class="check__input visually-hidden" type="checkbox" name="платеж"/><span class="check__box"></span><span class="check__sum">
+            78 000 рублей
+            <span class="check__year">в 3-ий год</span></span>
+        </label>
+      </div>
+    </template>
+    <script src="js/vendor.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
